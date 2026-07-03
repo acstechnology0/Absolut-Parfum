@@ -3,68 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ABSOLUT PARFUM — Maison de Parfum</title>
+  <title>ABSOLUT PARFUM — Catálogo Digital Premium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* ===== Paleta: Maison clásica + acento "leopardo" ===== */
-      --cream: #f4ead2;         /* pergamino / marfil */
-      --cream-deep: #ead9b2;    /* pergamino sombreado */
-      --espresso: #241710;      /* casi negro, café oscuro */
-      --espresso-800: #34241a;  /* café tarjetas */
-      --espresso-700: #43301f;
-      --leopard-spot: #2c1c10;  /* mancha de leopardo */
-      --gold: #b8873a;          /* oro viejo */
-      --gold-bright: #dcb45c;   /* oro brillante */
-      --wine: #7a1626;          /* burdeos, acento clásico */
-      --wine-deep: #4d0e17;
-
-      --font-display: 'Playfair Display', serif;
-      --font-eyebrow: 'Cormorant Garamond', serif;
-      --font-body: 'EB Garamond', serif;
-
-      --radius: 1px;
-      --transition: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-      --shadow-premium: 0 18px 40px rgba(10, 6, 3, 0.55);
+      --bg-dark: #090909;
+      --bg-light: #fbfaf7;
+      --gold: #d4af37;
+      --gold-dark: #aa8416;
+      --champagne: #f4efe3;
+      --gray-900: #121212;
+      --gray-800: #1a1a1a;
+      --gray-400: #8a8883;
+      --gray-200: #e5e2da;
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Montserrat', sans-serif;
+      --radius: 2px;
+      --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --shadow-premium: 0 15px 35px rgba(0,0,0,0.6);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font-body);
-      background: var(--espresso);
-      color: var(--cream);
-      font-size: 15px;
-      line-height: 1.65;
+      background: var(--bg-dark);
+      color: var(--bg-light);
+      font-size: 14px;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-    }
-
-    /* ===== Patrón de leopardo — 100% CSS, sin imágenes ===== */
-    .leopard-strip {
-      height: 10px;
-      background-color: var(--gold);
-      background-image:
-        radial-gradient(circle at 15% 40%, transparent 3px, var(--leopard-spot) 4px, var(--leopard-spot) 5px, transparent 6px),
-        radial-gradient(circle at 45% 65%, transparent 2.5px, var(--leopard-spot) 3.5px, var(--leopard-spot) 4.5px, transparent 5.5px),
-        radial-gradient(circle at 75% 30%, transparent 3px, var(--leopard-spot) 4px, var(--leopard-spot) 5px, transparent 6px),
-        radial-gradient(circle at 95% 70%, transparent 2px, var(--leopard-spot) 3px, var(--leopard-spot) 4px, transparent 5px);
-      background-size: 34px 20px;
-      background-repeat: repeat-x;
-    }
-
-    .leopard-fill {
-      background-color: var(--cream-deep);
-      background-image:
-        radial-gradient(circle at 20% 30%, transparent 6px, var(--leopard-spot) 7px, var(--leopard-spot) 9px, transparent 10px),
-        radial-gradient(circle at 60% 60%, transparent 5px, var(--leopard-spot) 6px, var(--leopard-spot) 8px, transparent 9px),
-        radial-gradient(circle at 85% 20%, transparent 4px, var(--leopard-spot) 5px, var(--leopard-spot) 7px, transparent 8px),
-        radial-gradient(circle at 40% 85%, transparent 5px, var(--leopard-spot) 6px, var(--leopard-spot) 8px, transparent 9px);
-      background-size: 70px 70px, 60px 60px, 55px 55px, 65px 65px;
     }
 
     /* NAVBAR */
@@ -72,12 +44,13 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: linear-gradient(180deg, rgba(20,13,9,0.98), rgba(20,13,9,0.94));
-      border-bottom: 1px solid rgba(184, 135, 58, 0.4);
+      background: rgba(9, 9, 9, 0.96);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0.7rem 2rem 0;
+      padding: 0.6rem 2rem;
+      backdrop-filter: blur(10px);
     }
 
     .brand-container {
@@ -88,76 +61,53 @@
       max-width: 1400px;
     }
 
-    .crest {
-      width: 44px; height: 44px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display);
-      font-size: 15px; font-weight: 700; letter-spacing: 0.02em;
-      color: var(--gold-bright);
-      position: relative;
-    }
-    .crest::before, .crest::after {
-      content: "";
-      position: absolute; inset: -5px;
-      border: 1px solid rgba(184,135,58,0.35);
-      border-radius: 50%;
-    }
-    .crest::after { inset: -9px; border-color: rgba(184,135,58,0.18); }
-
     .logo {
       font-family: var(--font-display);
-      font-size: 27px;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      color: var(--cream);
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--bg-light);
       text-decoration: none;
-      font-style: italic;
     }
-    .logo span { color: var(--gold-bright); font-style: normal; }
+    .logo span { color: var(--gold); }
 
     .nav-menu {
       display: flex;
-      gap: 2.4rem;
-      margin: 12px 0 6px;
-      font-family: var(--font-eyebrow);
+      gap: 2.2rem;
+      margin: 10px 0 4px;
     }
     .nav-link {
-      color: var(--cream-deep);
+      color: var(--gray-400);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.15em;
       transition: color var(--transition);
-      font-weight: 600;
-      opacity: 0.75;
+      font-weight: 400;
     }
-    .nav-link:hover { color: var(--gold-bright); opacity: 1; }
+    .nav-link:hover { color: var(--gold); }
 
     .cart-btn {
       position: relative;
       background: none;
       border: 1px solid var(--gold);
       border-radius: var(--radius);
-      padding: 9px 20px;
-      font-family: var(--font-eyebrow);
-      font-size: 13px;
-      font-weight: 600;
+      padding: 8px 18px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--gold-bright);
+      letter-spacing: 0.12em;
+      color: var(--gold);
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 8px;
       transition: all var(--transition);
     }
-    .cart-btn:hover { background: var(--gold); color: var(--espresso); }
-
+    .cart-btn:hover { background: var(--gold); color: var(--bg-dark); }
+    
     .cart-count {
-      background: var(--wine);
-      color: var(--cream);
+      background: var(--bg-light);
+      color: var(--bg-dark);
       font-size: 10px;
       font-weight: bold;
       padding: 2px 7px;
@@ -169,43 +119,31 @@
     /* HERO PORTADA */
     .hero {
       position: relative;
-      padding: 7rem 2rem 3.5rem;
+      padding: 9rem 2rem;
       text-align: center;
-      background:
-        radial-gradient(ellipse at center, rgba(184,135,58,0.10) 0%, transparent 65%),
-        var(--espresso);
-      overflow: hidden;
-    }
-    .hero-eyebrow {
-      font-family: var(--font-eyebrow);
-      font-style: italic;
-      font-size: 16px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 1.2rem;
+      background: radial-gradient(circle at center, #1b1915 0%, var(--bg-dark) 75%);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
     }
     .hero h1 {
       font-family: var(--font-display);
-      font-size: 54px;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      color: var(--cream);
-      margin-bottom: 1.1rem;
+      font-size: 50px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--bg-light);
+      margin-bottom: 1rem;
     }
     .hero p {
-      font-size: 16px;
-      color: var(--cream-deep);
-      max-width: 620px;
+      font-size: 14px;
+      color: var(--gray-400);
+      max-width: 650px;
       margin: 0 auto 2.5rem;
-      font-weight: 400;
-      opacity: 0.85;
+      letter-spacing: 0.06em;
+      font-weight: 300;
     }
 
     /* PROMOCIONES DESTACADAS */
     .promo-banner-section {
-      padding: 3.5rem 2rem 1rem;
+      padding: 4rem 2rem 1rem;
       max-width: 1400px;
       margin: 0 auto;
     }
@@ -215,52 +153,42 @@
       gap: 2rem;
     }
     .promo-card {
-      background: var(--espresso-800);
-      border: 1px solid rgba(184, 135, 58, 0.4);
-      padding: 2.6rem 2rem 2.2rem;
+      background: linear-gradient(135deg, #141310 0%, #0d0d0d 100%);
+      border: 1px dashed rgba(212, 175, 55, 0.4);
+      padding: 2.5rem 2rem;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
-    .promo-card::before {
-      content: "";
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 6px;
-    }
-    .promo-card:nth-child(1)::before { background: var(--wine); }
-    .promo-card:nth-child(2)::before { background: var(--gold); }
     .promo-card h3 {
       font-family: var(--font-display);
-      font-style: italic;
-      font-size: 21px;
-      color: var(--gold-bright);
-      letter-spacing: 0.02em;
-      margin-bottom: 12px;
+      font-size: 20px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
     }
     .promo-card p {
-      font-size: 14px;
-      color: var(--cream-deep);
-      font-weight: 400;
+      font-size: 12px;
+      color: var(--gray-200);
+      font-weight: 300;
       max-width: 400px;
       margin: 0 auto;
-      opacity: 0.9;
     }
     .promo-tag {
-      position: absolute; top: 14px; right: 14px;
-      font-family: var(--font-eyebrow);
-      font-size: 11px; text-transform: uppercase; font-weight: 600;
-      letter-spacing: 0.14em; background: rgba(184,135,58,0.15);
-      color: var(--gold-bright); padding: 3px 10px; border: 1px solid var(--gold);
+      position: absolute; top: 12px; right: 12px;
+      font-size: 9px; text-transform: uppercase;
+      letter-spacing: 0.1em; background: rgba(212,175,55,0.15);
+      color: var(--gold); padding: 2px 8px; border: 1px solid var(--gold);
     }
 
     /* FILTROS */
     .filters {
       display: flex;
       justify-content: center;
-      gap: 2.8rem;
-      padding: 2.2rem 2rem 1.6rem;
-      background: var(--espresso);
-      border-bottom: 1px solid rgba(184, 135, 58, 0.25);
+      gap: 2.5rem;
+      padding: 2.5rem 2rem;
+      background: var(--gray-900);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
       overflow-x: auto;
       position: sticky;
       top: 108px;
@@ -268,18 +196,16 @@
     }
     .filter-btn {
       background: none; border: none;
-      font-family: var(--font-eyebrow);
-      font-size: 15px; font-weight: 600; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--cream-deep);
-      cursor: pointer; padding-bottom: 9px;
+      font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gray-400);
+      cursor: pointer; padding-bottom: 8px;
       transition: all var(--transition);
       white-space: nowrap;
-      opacity: 0.65;
     }
-    .filter-btn.active { color: var(--gold-bright); border-bottom: 2px solid var(--gold); font-weight: 700; opacity: 1; }
+    .filter-btn.active { color: var(--gold); border-bottom: 2px solid var(--gold); font-weight: 500; }
 
     /* SECCIÓN CATÁLOGO */
-    .products-section { padding: 3.5rem 2rem 6rem; background: var(--espresso); }
+    .products-section { padding: 4rem 2rem 6rem; background: var(--bg-dark); }
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -291,116 +217,76 @@
     /* TARJETAS */
     .product-card {
       display: flex; flex-direction: column;
-      border: 1px solid rgba(184, 135, 58, 0.22);
+      border: 1px solid rgba(212, 175, 55, 0.08);
       transition: all var(--transition);
-      background: var(--espresso-800);
+      background: var(--gray-900);
       position: relative;
     }
-    .product-card::after {
-      content: "";
-      position: absolute; inset: 6px;
-      border: 1px solid rgba(184, 135, 58, 0);
-      pointer-events: none;
-      transition: border-color var(--transition);
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--gold);
+    .product-card:hover { 
+      transform: translateY(-6px); 
+      border-color: rgba(212, 175, 55, 0.35);
       box-shadow: var(--shadow-premium);
     }
-    .product-card:hover::after { border-color: rgba(184,135,58,0.4); }
 
     .badge {
-      position: absolute; top: 0; left: 18px;
-      color: var(--cream);
-      font-family: var(--font-eyebrow);
-      font-size: 11px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.12em; padding: 6px 12px 5px; z-index: 10;
-      background-color: var(--wine);
-      background-image:
-        radial-gradient(circle at 20% 30%, transparent 2px, rgba(0,0,0,0.55) 3px, rgba(0,0,0,0.55) 4px, transparent 5px),
-        radial-gradient(circle at 65% 60%, transparent 2px, rgba(0,0,0,0.55) 3px, rgba(0,0,0,0.55) 4px, transparent 5px),
-        radial-gradient(circle at 85% 20%, transparent 1.5px, rgba(0,0,0,0.5) 2.5px, rgba(0,0,0,0.5) 3.5px, transparent 4.5px);
-      background-size: 22px 18px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.45);
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 6px 100%, 0 78%);
+      position: absolute; top: 15px; left: 15px;
+      background: var(--gold); color: var(--bg-dark);
+      font-size: 9px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 4px 10px; z-index: 10;
     }
 
     .product-thumb {
       aspect-ratio: 1/1;
       overflow: hidden;
-      background: #150e09;
+      background: #141414;
       display: flex; align-items: center; justify-content: center;
-      border-bottom: 1px solid rgba(184,135,58,0.2);
     }
-    .product-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: sepia(0.12) brightness(0.92); }
-    .product-card:hover .product-thumb img { transform: scale(1.04); filter: sepia(0.05) brightness(1); }
+    .product-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: brightness(0.9); }
+    .product-card:hover .product-thumb img { transform: scale(1.04); filter: brightness(1); }
 
-    .product-info { padding: 1.9rem 1.6rem; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
-    .product-brand {
-      font-family: var(--font-eyebrow);
-      font-size: 13px; color: var(--gold-bright); text-transform: uppercase;
-      letter-spacing: 0.18em; margin-bottom: 8px; font-weight: 600;
-    }
-    .product-name {
-      font-family: var(--font-display); font-style: italic; font-size: 17px; font-weight: 600;
-      margin-bottom: 10px; color: var(--cream);
-      min-height: 44px; display: flex; align-items: center; justify-content: center;
-    }
-    .product-desc { font-size: 13px; color: var(--cream-deep); margin-bottom: 16px; font-weight: 400; line-height: 1.55; opacity: 0.85; }
+    .product-info { padding: 1.8rem 1.5rem; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
+    .product-brand { font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+    .product-name { font-family: var(--font-display); font-size: 16px; font-weight: 400; margin-bottom: 8px; color: var(--bg-light); min-height: 44px; display: flex; align-items: center; justify-content: center; }
+    .product-desc { font-size: 11px; color: var(--gray-400); margin-bottom: 14px; font-weight: 300; line-height: 1.5; }
+    
+    .olfative-notes { display: flex; justify-content: center; gap: 4px; flex-wrap: wrap; margin-bottom: 16px; }
+    .note-tag { font-size: 9px; background: rgba(212, 175, 55, 0.06); color: var(--champagne); border: 1px solid rgba(212, 175, 55, 0.12); padding: 2px 8px; border-radius: 20px; }
 
-    .olfative-notes { display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; margin-bottom: 18px; }
-    .note-tag {
-      font-family: var(--font-eyebrow);
-      font-size: 11px; font-weight: 600; background: rgba(184, 135, 58, 0.08);
-      color: var(--gold-bright); border: 1px solid rgba(184, 135, 58, 0.3);
-      padding: 3px 10px; border-radius: 20px; letter-spacing: 0.03em;
-    }
-
-    .variant-selector { margin-bottom: 18px; display: flex; justify-content: center; gap: 6px; }
+    .variant-selector { margin-bottom: 16px; display: flex; justify-content: center; gap: 6px; }
     .variant-opt {
-      background: transparent; border: 1px solid rgba(184,135,58,0.35);
-      color: var(--cream-deep); font-family: var(--font-eyebrow); font-weight: 600;
-      font-size: 13px; padding: 5px 13px; cursor: pointer;
+      background: transparent; border: 1px solid #262522;
+      color: var(--gray-400); font-size: 11px; padding: 5px 12px; cursor: pointer;
       transition: all var(--transition);
     }
-    .variant-opt.selected { border-color: var(--gold); color: var(--espresso); background: var(--gold-bright); }
+    .variant-opt.selected { border-color: var(--gold); color: var(--gold); background: rgba(214,175,55,0.06); }
 
-    .product-price {
-      font-family: var(--font-display); font-style: italic; font-size: 21px;
-      color: var(--gold-bright); margin: auto 0 18px; font-weight: 700;
-    }
+    .product-price { font-family: var(--font-display); font-size: 19px; color: var(--gold); margin: auto 0 16px; font-weight: 500; }
 
     .btn-action {
-      width: 100%; padding: 14px;
-      font-family: var(--font-eyebrow);
-      font-size: 13px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.14em; cursor: pointer;
+      width: 100%; padding: 13px;
+      font-size: 11px; text-transform: uppercase;
+      letter-spacing: 0.12em; cursor: pointer;
       border-radius: var(--radius); transition: all var(--transition);
-      margin-top: 5px;
+      margin-top: 5px; font-weight: 500;
     }
-    .btn-primary { background: var(--gold); color: var(--espresso); border: 1px solid var(--gold); }
-    .btn-primary:hover { background: var(--gold-bright); border-color: var(--gold-bright); box-shadow: 0 6px 16px rgba(184,135,58,0.35); }
-    .btn-secondary { background: transparent; color: var(--cream); border: 1px solid rgba(184, 135, 58, 0.35); }
-    .btn-secondary:hover { border-color: var(--gold); color: var(--gold-bright); }
+    .btn-primary { background: var(--gold); color: var(--bg-dark); border: 1px solid var(--gold); }
+    .btn-primary:hover { background: var(--gold-dark); border-color: var(--gold-dark); color: var(--bg-light); }
+    .btn-secondary { background: transparent; color: var(--bg-light); border: 1px solid rgba(212, 175, 55, 0.25); }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
 
     /* NOTIFICACIÓN EMERGENTE (TOAST) */
     .toast-container {
       position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
       z-index: 1000; display: flex; flex-direction: column; gap: 10px;
-      width: min(90vw, 420px); pointer-events: none;
+      width: min(90vw, 400px); pointer-events: none;
     }
     .toast-shipping {
-      background: var(--espresso-800); border: 1px solid var(--gold); color: var(--cream);
-      padding: 1.1rem 1.6rem; text-align: center; box-shadow: var(--shadow-premium);
+      background: #121212; border: 1px solid var(--gold); color: var(--bg-light);
+      padding: 1rem 1.5rem; text-align: center; box-shadow: var(--shadow-premium);
       animation: fadeInOut 4.5s ease forwards; pointer-events: auto;
-      border-left: 4px solid var(--wine);
     }
-    .toast-shipping h5 {
-      font-family: var(--font-display); font-style: italic; color: var(--gold-bright);
-      font-size: 14px; margin-bottom: 5px; letter-spacing: 0.03em;
-    }
-    .toast-shipping p { font-size: 12px; font-weight: 400; opacity: 0.9; }
+    .toast-shipping h5 { font-family: var(--font-display); color: var(--gold); font-size: 12px; margin-bottom: 4px; letter-spacing: 0.05em; }
+    .toast-shipping p { font-size: 11px; font-weight: 300; }
 
     @keyframes fadeInOut {
       0% { opacity: 0; transform: translateY(-20px); }
@@ -410,64 +296,54 @@
     }
 
     /* CARRITO DRAWER */
-    .drawer-overlay { position: fixed; inset: 0; background: rgba(10,6,3,0.8); z-index: 200; display: none; backdrop-filter: blur(4px); }
+    .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 200; display: none; backdrop-filter: blur(4px); }
     .cart-drawer {
-      position: fixed; top: 0; right: 0; bottom: 0; width: min(430px, 100vw);
-      background: var(--espresso-800); border-left: 1px solid var(--gold); z-index: 201; transform: translateX(100%);
-      transition: transform 0.3s ease; display: flex; flex-direction: column; color: var(--cream);
+      position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100vw);
+      background: var(--gray-900); border-left: 1px solid rgba(212, 175, 55, 0.15); z-index: 201; transform: translateX(100%);
+      transition: transform 0.3s ease; display: flex; flex-direction: column; color: var(--bg-light);
     }
     .cart-drawer.open { transform: translateX(0); }
-    .drawer-header {
-      padding: 26px; border-bottom: 1px solid rgba(184, 135, 58, 0.25);
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .drawer-header span { font-family: var(--font-display); font-style: italic; font-size: 19px; letter-spacing: 0.03em; color: var(--gold-bright); }
-    .drawer-body { flex-grow: 1; overflow-y: auto; padding: 26px; }
-    .drawer-footer { padding: 26px; border-top: 1px solid rgba(184, 135, 58, 0.25); background: var(--espresso); }
+    .drawer-header { padding: 25px; border-bottom: 1px solid rgba(212, 175, 55, 0.1); display: flex; justify-content: space-between; align-items: center; }
+    .drawer-body { flex-grow: 1; overflow-y: auto; padding: 25px; }
+    .drawer-footer { padding: 25px; border-top: 1px solid rgba(212, 175, 55, 0.1); background: var(--bg-dark); }
 
     /* MODAL DE SELECCIÓN DE PROMO (DECANTS) */
     .promo-modal {
-      position: fixed; inset: 0; background: rgba(10,6,3,0.88);
+      position: fixed; inset: 0; background: rgba(0,0,0,0.85);
       z-index: 300; display: none; align-items: center; justify-content: center; padding: 2rem;
       backdrop-filter: blur(6px);
     }
     .promo-modal-content {
-      background: var(--espresso-800); border: 1px solid var(--gold);
-      max-width: 500px; width: 100%; padding: 2.6rem; text-align: center;
+      background: var(--gray-900); border: 1px solid var(--gold);
+      max-width: 500px; width: 100%; padding: 2.5rem; text-align: center;
       position: relative; box-shadow: var(--shadow-premium);
     }
-    .promo-modal-title { font-family: var(--font-display); font-style: italic; font-size: 21px; color: var(--gold-bright); margin-bottom: 1rem; letter-spacing: 0.02em; }
+    .promo-modal-title { font-family: var(--font-display); font-size: 20px; color: var(--gold); margin-bottom: 1rem; letter-spacing: 0.05em;}
     .promo-option-card {
-      background: var(--espresso); border: 1px solid rgba(184,135,58,0.25);
-      padding: 1.3rem 1.6rem; margin-top: 1rem; cursor: pointer; transition: all var(--transition);
+      background: var(--bg-dark); border: 1px solid rgba(212,175,55,0.2);
+      padding: 1.2rem 1.5rem; margin-top: 1rem; cursor: pointer; transition: all var(--transition);
       text-align: left;
     }
-    .promo-option-card:hover { border-color: var(--gold); background: rgba(184,135,58,0.06); }
-    .promo-option-card h4 { font-family: var(--font-display); font-style: italic; font-size: 15px; color: var(--cream); margin-bottom: 4px; }
-    .promo-option-card p { font-size: 12px; color: var(--cream-deep); font-weight: 400; opacity: 0.85; }
-    .promo-option-card.disabled { opacity: 0.25; pointer-events: none; border-color: #2a2018; }
+    .promo-option-card:hover { border-color: var(--gold); background: rgba(212,175,55,0.05); }
+    .promo-option-card h4 { font-family: var(--font-display); font-size: 14px; color: #fff; margin-bottom: 4px; }
+    .promo-option-card p { font-size: 11px; color: var(--gray-400); font-weight: 300; }
+    .promo-option-card.disabled { opacity: 0.25; pointer-events: none; border-color: #222; }
 
     /* FOOTER */
-    footer {
-      padding: 4rem 2rem 3rem; text-align: center; background: #150e09;
-      border-top: 1px solid rgba(184, 135, 58, 0.3);
-    }
-    .footer-crest { font-family: var(--font-display); font-style: italic; font-size: 22px; color: var(--gold-bright); margin-bottom: 10px; }
-    .footer-text { font-family: var(--font-eyebrow); font-size: 14px; color: var(--cream-deep); letter-spacing: 0.08em; opacity: 0.7; }
-
+    footer { padding: 4rem 2rem; text-align: center; background: #050505; border-top: 1px solid rgba(212, 175, 55, 0.15); }
+    
     /* WHATSAPP FLOAT */
     .wa-float {
       position: fixed; bottom: 30px; right: 30px;
-      background: var(--wine); width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366; width: 56px; height: 56px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 1000;
-      border: 1px solid var(--gold);
     }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 36px; }
+      .hero h1 { font-size: 34px; }
       .nav-menu { display: none; }
-      .filters { top: 66px; padding: 1.6rem 1rem; gap: 1.6rem; }
+      .filters { top: 66px; padding: 1.5rem 1rem; gap: 1.5rem; }
     }
   </style>
 </head>
@@ -479,8 +355,8 @@
   <!-- NAVBAR -->
   <header>
     <div class="brand-container">
-      <div class="crest">AP</div>
-      <a href="#" class="logo">ABSOLUT<span>·</span>PARFUM</a>
+      <div style="width: 80px;"></div>
+      <a href="#" class="logo">ABSOLUT<span>.</span>PARFUM</a>
       <button class="cart-btn" onclick="toggleDrawer()">
         Bolsa <span class="cart-count" id="cart-count">0</span>
       </button>
@@ -490,15 +366,13 @@
       <a href="#catalogo" class="nav-link" onclick="setFilter('completos')">Perfumes Completos</a>
       <a href="#catalogo" class="nav-link" onclick="setFilter('decants')">Decants</a>
     </nav>
-    <div class="leopard-strip" style="width:100%; margin-top: 0.7rem;"></div>
   </header>
 
   <!-- HERO PORTADA -->
   <section class="hero">
-    <span class="hero-eyebrow">Casa de Alta Perfumería — Est. Colección Selecta</span>
     <h1>Descubre tu esencia</h1>
     <p>Alta perfumería y muestras de selección premium en formatos originales y decants listos para acompañar cada una de tus ocasiones especiales.</p>
-    <a href="#catalogo" class="btn-primary" style="padding: 14px 34px; text-decoration: none; display: inline-block; font-family: var(--font-eyebrow); font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; border-radius: var(--radius);">Ver Catálogo</a>
+    <a href="#catalogo" class="btn-primary" style="padding: 13px 32px; text-decoration: none; display: inline-block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;">Ver Catálogo</a>
   </section>
 
   <!-- PROMOCIONES VIGENTES -->
@@ -532,10 +406,10 @@
   <!-- MODAL DE ELECCIÓN DE PROMO -->
   <div class="promo-modal" id="promo-modal">
     <div class="promo-modal-content">
-      <button onclick="cerrarPromoModal()" style="position:absolute; top:15px; right:20px; background:none; border:none; color:var(--gold-bright); font-size:20px; cursor:pointer;">✕</button>
+      <button onclick="cerrarPromoModal()" style="position:absolute; top:15px; right:20px; background:none; border:none; color:var(--gold); font-size:20px; cursor:pointer;">✕</button>
       <h3 class="promo-modal-title" id="modal-product-title">Selecciona tu Opción</h3>
-      <p style="font-size:13px; color:var(--cream-deep);" id="modal-product-subtitle">¿Bajo qué dinámica deseas agregar este Decant a tu bolsa?</p>
-
+      <p style="font-size:12px; color:var(--gray-400);" id="modal-product-subtitle">¿Bajo qué dinámica deseas agregar este Decant a tu bolsa?</p>
+      
       <!-- OPCIÓN 1: SET 3X399 -->
       <div class="promo-option-card" id="opt-set-399" onclick="procesarSeleccionPromo('set399')">
         <h4>Set Especial: 3 Decants x $399 (5ml)</h4>
@@ -550,7 +424,7 @@
 
       <!-- OPCIÓN 3: ADQUISICIÓN ESTÁNDAR / PRECIO DE LISTA -->
       <div class="promo-option-card" id="opt-regular" onclick="procesarSeleccionPromo('estandar')">
-        <h4 style="color: var(--gold-bright);">Solo quiero adquirir este decant (Venta Individual)</h4>
+        <h4 style="color: var(--gold);">Solo quiero adquirir este decant (Venta Individual)</h4>
         <p>Llévatelo de manera directa e independiente a precio de lista regular, sin participar en ninguna promoción.</p>
       </div>
     </div>
@@ -560,25 +434,18 @@
   <div class="drawer-overlay" id="drawer-overlay" onclick="toggleDrawer()"></div>
   <aside class="cart-drawer" id="cart-drawer">
     <div class="drawer-header">
-      <span>Mi Carrito</span>
-      <button onclick="toggleDrawer()" style="background:none; border:none; color:var(--gold-bright); font-size: 20px; cursor:pointer;">✕</button>
+      <span style="font-family: var(--font-display); font-size: 18px; letter-spacing: 0.1em;">Mi Carrito</span>
+      <button onclick="toggleDrawer()" style="background:none; border:none; color:var(--gold); font-size: 20px; cursor:pointer;">✕</button>
     </div>
     <div class="drawer-body" id="drawer-body"></div>
     <div class="drawer-footer">
-      <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-family: var(--font-display); font-style: italic; font-size: 17px;">
+      <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-family: var(--font-display); font-size: 16px;">
         <span>Total Estimado:</span>
-        <span id="cart-total" style="color:var(--gold-bright);">$0</span>
+        <span id="cart-total" style="color:var(--gold);">$0</span>
       </div>
       <button class="btn-action btn-primary" onclick="enviarPedido()">Enviar Pedido por WhatsApp</button>
     </div>
   </aside>
-
-  <!-- FOOTER -->
-  <div class="leopard-strip" style="width:100%;"></div>
-  <footer>
-    <div class="footer-crest">ABSOLUT · PARFUM</div>
-    <p class="footer-text">Alta Perfumería &amp; Decants de Colección</p>
-  </footer>
 
   <!-- BOTÓN FLOTANTE WHATSAPP -->
   <a href="https://wa.me/5219711362099" class="wa-float" target="_blank" style="display: flex; align-items: center; justify-content: center;">
@@ -648,7 +515,7 @@
         const card = document.createElement("div");
         card.className = "product-card";
         
-        const badgeHTML = p.cat === "decants" ? `<div class="badge">Decant</div>` : '';
+        const badgeHTML = p.cat === "decants" ? `<div class="badge" style="background:#222; color:var(--gold); border:1px solid var(--gold);">Decant</div>` : '';
         const notesHTML = p.notas.map(n => `<span class="note-tag">${n}</span>`).join('');
         
         const tamanos = Object.keys(p.precios);
@@ -661,7 +528,7 @@
           });
           selectorHTML += `</div>`;
         } else {
-          selectorHTML = `<div style="font-size:11px; color:var(--cream-deep); margin-bottom:16px; text-transform:uppercase; letter-spacing:0.05em; font-family: var(--font-eyebrow); opacity:0.75;">Contenido: ${tamanos[0]}</div>`;
+          selectorHTML = `<div style="font-size:11px; color:var(--gray-400); margin-bottom:16px; text-transform:uppercase; letter-spacing:0.05em;">Contenido: ${tamanos[0]}</div>`;
         }
 
         const varianteActual = seleccionados[p.id];
@@ -789,7 +656,7 @@
       const totalEl = document.getElementById("cart-total");
       
       if (carrito.length === 0) {
-        body.innerHTML = "<p style='text-align:center; color:var(--cream-deep); margin-top:40px; font-weight:400; opacity:0.7;'>Tu bolsa de compras está vacía</p>";
+        body.innerHTML = "<p style='text-align:center; color:var(--gray-400); margin-top:40px; font-weight:300;'>Tu bolsa de compras está vacía</p>";
         totalEl.textContent = "$0";
         return;
       }
@@ -815,27 +682,27 @@
         let anotacionPromo = "";
 
         if (item.cat === "completos") {
-          anotacionPromo = `<span style="color:var(--gold-bright); font-size:10px; display:block;">[Perfume Completo Original]</span>`;
+          anotacionPromo = `<span style="color:#d4af37; font-size:10px; display:block;">[Perfume Completo Original]</span>`;
         } else if (item.promo === "set399") {
           anotacionPromo = `<span style="color:#25D366; font-size:10px; display:block;">[Promo Set 3 x $399]</span>`;
         } else if (item.promo === "unlock" && item.tamano === "5ml") {
-          anotacionPromo = `<span style="color:var(--gold-bright); font-size:10px; display:block;">[Promo Unlock Your Scent - Cuponera 5ml]</span>`;
+          anotacionPromo = `<span style="color:var(--gold); font-size:10px; display:block;">[Promo Unlock Your Scent - Cuponera 5ml]</span>`;
         } else {
-          anotacionPromo = `<span style="color:var(--cream-deep); font-size:10px; display:block;">[Venta Individual Regular]</span>`;
+          anotacionPromo = `<span style="color:var(--gray-400); font-size:10px; display:block;">[Venta Individual Regular]</span>`;
         }
 
         totalEstablecido += item.precio * item.qty;
 
         html += `
-          <div style="display:flex; gap:15px; margin-bottom:20px; align-items:center; border-bottom: 1px solid rgba(184,135,58,0.15); padding-bottom:15px;">
-            <img src="${item.imagen}" style="width:55px; height:55px; object-fit:cover; border: 1px solid rgba(184,135,58,0.2);">
+          <div style="display:flex; gap:15px; margin-bottom:20px; align-items:center; border-bottom: 1px solid rgba(212,175,55,0.1); padding-bottom:15px;">
+            <img src="${item.imagen}" style="width:55px; height:55px; object-fit:cover; border: 1px solid rgba(212,175,55,0.1);">
             <div style="flex-grow:1;">
-              <div style="font-size:13px; font-weight:600; font-family:var(--font-display); font-style: italic;">${item.nombre}</div>
-              <div style="font-size:11px; color:var(--gold-bright); margin-top:2px;">Contenido: ${item.tamano}</div>
+              <div style="font-size:12px; font-weight:500; font-family:var(--font-display);">${item.nombre}</div>
+              <div style="font-size:11px; color:var(--gold); margin-top:2px;">Contenido: ${item.tamano}</div>
               ${anotacionPromo}
-              <div style="font-size:11px; color:var(--cream-deep); font-weight:400; margin-top:2px; opacity:0.8;">$${item.precio} x ${item.qty}</div>
+              <div style="font-size:11px; color:var(--gray-400); font-weight:300; margin-top:2px;">$${item.precio} x ${item.qty}</div>
             </div>
-            <button onclick="quitarDelCarrito(${index})" style="background:none; border:none; color:rgba(244,234,210,0.4); cursor:pointer; font-size:14px;">✕</button>
+            <button onclick="quitarDelCarrito(${index})" style="background:none; border:none; color:rgba(255,255,255,0.4); cursor:pointer; font-size:14px;">✕</button>
           </div>
         `;
       });
@@ -844,18 +711,18 @@
       
       let avisosHTML = "";
       if (tieneCompletos) {
-        avisosHTML += `<p style="font-size:11px; color:var(--gold-bright); margin-bottom:8px; border-left: 2px solid var(--gold); padding-left:6px;">🕒 <strong>Nota:</strong> Perfume(s) completo(s) con entrega estimada de 3-5 días hábiles.</p>`;
+        avisosHTML += `<p style="font-size:11px; color:var(--gold); margin-bottom:8px; border-left: 2px solid var(--gold); padding-left:6px;">🕒 <strong>Nota:</strong> Perfume(s) completo(s) con entrega estimada de 3-5 días hábiles.</p>`;
       }
       if (decantsParaSet399 > 0) {
         avisosHTML += `<p style="font-size:11px; color:#25D366; margin-bottom:5px;">Llevas ${decantsParaSet399} decant(s) en Set de $399.</p>`;
       }
       if (decantsParaUnlock5ml >= 3) {
-        avisosHTML += `<p style="font-size:11px; color:var(--gold-bright); margin-bottom:5px;">¡Felicidades! Tienes ${decantsParaUnlock5ml} individuales en cuponera, ¡Aplica tu 4to de 5ml GRATIS!</p>`;
+        avisosHTML += `<p style="font-size:11px; color:var(--gold); margin-bottom:5px;">¡Felicidades! Tienes ${decantsParaUnlock5ml} individuales en cuponera, ¡Aplica tu 4to de 5ml GRATIS!</p>`;
       } else if (decantsParaUnlock5ml > 0) {
-        avisosHTML += `<p style="font-size:11px; color:var(--cream-deep); margin-bottom:5px;">Llevas ${decantsParaUnlock5ml} de 5ml para la cuponera Unlock (Faltan ${3 - decantsParaUnlock5ml} para el regalo de 5ml).</p>`;
+        avisosHTML += `<p style="font-size:11px; color:var(--gray-400); margin-bottom:5px;">Llevas ${decantsParaUnlock5ml} de 5ml para la cuponera Unlock (Faltan ${3 - decantsParaUnlock5ml} para el regalo de 5ml).</p>`;
       }
       
-      body.innerHTML += `<div style="margin-top:20px; padding:12px; background:rgba(244,234,210,0.03); border: 1px solid rgba(184,135,58,0.12);">${avisosHTML || '<p style="font-size:11px; color:var(--cream-deep);">Artículos añadidos a precio de lista regular.</p>'}</div>`;
+      body.innerHTML += `<div style="margin-top:20px; padding:12px; background:rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.05);">${avisosHTML || '<p style="font-size:11px; color:var(--gray-400);">Artículos añadidos a precio de lista regular.</p>'}</div>`;
 
       totalEl.textContent = `$${totalEstablecido}`;
     }
