@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ABSOLUT PARFUM — Catálogo Digital Premium</title>
+  <link rel="icon" type="image/png" href="logo-absolut.jpg">
+<link rel="apple-touch-icon" href="logo-absolut.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -54,12 +56,26 @@
     }
 
     .brand-container {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1400px;
-    }
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+}
+
+    .brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: invert(1);
+}
 
     .logo {
       font-family: var(--font-display);
@@ -354,13 +370,18 @@
 
   <!-- NAVBAR -->
   <header>
-    <div class="brand-container">
-      <div style="width: 80px;"></div>
-      <a href="#" class="logo">ABSOLUT<span>.</span>PARFUM</a>
-      <button class="cart-btn" onclick="toggleDrawer()">
-        Bolsa <span class="cart-count" id="cart-count">0</span>
-      </button>
-    </div>
+   <div class="brand-container">
+
+  <a href="#" class="brand-logo">
+    <img src="logo-absolut.jpg" alt="Logo Absolut Parfum">
+    <span class="logo">ABSOLUT<span>.</span>PARFUM</span>
+  </a>
+
+  <button class="cart-btn" onclick="toggleDrawer()">
+    Bolsa <span class="cart-count" id="cart-count">0</span>
+  </button>
+
+</div>
     <nav class="nav-menu">
       <a href="#" class="nav-link">Inicio</a>
       <a href="#catalogo" class="nav-link" onclick="setFilter('completos')">Perfumes Completos</a>
