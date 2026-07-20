@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ABSOLUT PARFUM — Catálogo Digital Premium</title>
-  <link rel="icon" type="image/jpg" href="imgenes/logo.jpg">
-<link rel="apple-touch-icon" href="imagenes/logo.jpg">
+  <link rel="icon" type="image/jpeg" href="./imagenes/logo.jpg?v=2">
+<link rel="apple-touch-icon" href="./imagenes/logo.jpg?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -55,17 +55,19 @@
       backdrop-filter: blur(10px);
     }
 
-    .brand-container {
+   .brand-container {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   max-width: 1400px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
 }
 
-    .brand-logo {
+   .brand-logo {
+  grid-column: 2;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   text-decoration: none;
 }
@@ -104,6 +106,8 @@
     .nav-link:hover { color: var(--gold); }
 
     .cart-btn {
+      grid-column: 3;
+  justify-self: end;
       position: relative;
       background: none;
       border: 1px solid var(--gold);
