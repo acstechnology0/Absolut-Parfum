@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="./imagenes/logo.jpg?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,6 +25,10 @@
       --gray-200: #e5e2da;
       --font-display: 'Cinzel', serif;
       --font-body: 'Montserrat', sans-serif;
+      --font-fiebre: 'Bebas Neue', sans-serif;
+      --fire-red: #e0201b;
+      --fire-deep: #5c0e0b;
+      --ember: #ff6a3d;
       --radius: 2px;
       --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       --shadow-premium: 0 15px 35px rgba(0,0,0,0.6);
@@ -136,6 +140,37 @@
     }
     .cart-count.visible { display: inline-block; }
 
+    /* RIBBON FIEBRE ABSOLUT */
+    .fiebre-ribbon {
+      position: sticky; top: 0; z-index: 120;
+      background: linear-gradient(90deg, var(--fire-deep), var(--fire-red) 45%, var(--ember) 100%);
+      background-size: 200% 100%;
+      animation: fiebreShift 6s ease-in-out infinite;
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; flex-wrap: wrap;
+      padding: 7px 1rem;
+      font-family: var(--font-fiebre);
+      letter-spacing: 0.06em;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    @keyframes fiebreShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .fiebre-ribbon .rb-label { font-size: 15px; }
+    .fiebre-ribbon .rb-timer {
+      display: flex; gap: 6px; font-size: 15px;
+    }
+    .fiebre-ribbon .rb-timer span {
+      background: rgba(0,0,0,0.3);
+      padding: 2px 7px;
+      min-width: 34px;
+      display: inline-block;
+      border-radius: 2px;
+    }
+
     /* HERO PORTADA */
     .hero {
       position: relative;
@@ -161,6 +196,143 @@
       font-weight: 300;
     }
 
+    /* HERO CAMPAÑA FIEBRE ABSOLUT */
+    .fiebre-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 4.5rem 2rem 4rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 120%, rgba(224,32,27,0.35) 0%, rgba(9,9,9,0) 60%),
+        var(--bg-dark);
+      border-bottom: 1px solid rgba(224,32,27,0.3);
+    }
+    .ember { position: absolute; bottom: -10px; border-radius: 50%;
+      background: radial-gradient(circle, var(--ember) 0%, rgba(224,32,27,0) 70%);
+      opacity: 0; animation: floatEmber 7s ease-in infinite;
+    }
+    .ember:nth-child(1) { left: 8%;  width: 10px; height: 10px; animation-delay: 0s; }
+    .ember:nth-child(2) { left: 22%; width: 6px;  height: 6px;  animation-delay: 1.4s; }
+    .ember:nth-child(3) { left: 40%; width: 14px; height: 14px; animation-delay: 2.6s; }
+    .ember:nth-child(4) { left: 63%; width: 8px;  height: 8px;  animation-delay: 0.8s; }
+    .ember:nth-child(5) { left: 78%; width: 12px; height: 12px; animation-delay: 3.4s; }
+    .ember:nth-child(6) { left: 90%; width: 7px;  height: 7px;  animation-delay: 2s; }
+    @keyframes floatEmber {
+      0%   { transform: translateY(0) scale(0.6); opacity: 0; }
+      15%  { opacity: 0.9; }
+      100% { transform: translateY(-320px) scale(1.1); opacity: 0; }
+    }
+    .fiebre-tag {
+      display: inline-block; font-family: var(--font-fiebre);
+      font-size: 13px; letter-spacing: 0.25em; color: var(--ember);
+      border: 1px solid var(--fire-red); padding: 5px 16px; margin-bottom: 18px;
+      background: rgba(224,32,27,0.08);
+    }
+    .fiebre-hero h1 {
+      font-family: var(--font-fiebre);
+      font-size: 58px;
+      line-height: 0.95;
+      letter-spacing: 0.03em;
+      color: var(--bg-light);
+      margin-bottom: 14px;
+    }
+    .fiebre-hero h1 span { color: var(--fire-red); }
+    .fiebre-hero .subtitle {
+      font-size: 13px; color: var(--gray-400); max-width: 560px;
+      margin: 0 auto 2.2rem; font-weight: 300; letter-spacing: 0.03em;
+    }
+    .fiebre-stamp {
+      position: absolute; top: 30px; right: 40px;
+      width: 88px; height: 88px; border-radius: 50%;
+      border: 2px solid var(--fire-red);
+      display: flex; align-items: center; justify-content: center;
+      transform: rotate(-14deg);
+      font-family: var(--font-fiebre); color: var(--ember);
+      font-size: 12px; letter-spacing: 0.08em; text-align: center; line-height: 1.15;
+      background: rgba(224,32,27,0.06);
+      box-shadow: 0 0 20px rgba(224,32,27,0.25);
+    }
+    .fiebre-stamp b { font-size: 22px; display: block; color: #fff; }
+    @media (max-width: 768px) { .fiebre-stamp { display: none; } }
+
+    /* TERMÓMETRO DE LA OFERTA */
+    .thermo-wrap {
+      max-width: 480px; margin: 0 auto 2.4rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .thermo-icon { font-size: 20px; flex-shrink: 0; }
+    .thermo-track {
+      flex-grow: 1; height: 10px; background: #1c1c1c;
+      border: 1px solid rgba(224,32,27,0.3); border-radius: 20px; overflow: hidden;
+    }
+    .thermo-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, var(--fire-deep), var(--fire-red), var(--ember));
+      transition: width 1s linear;
+    }
+    .thermo-label { font-size: 10px; color: var(--gray-400); flex-shrink: 0; letter-spacing: 0.05em; white-space: nowrap; }
+
+    /* CHIPS DE ARGUMENTOS */
+    .fiebre-chips {
+      display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;
+    }
+    .fiebre-chip {
+      border: 1px solid rgba(224,32,27,0.35);
+      background: rgba(224,32,27,0.05);
+      padding: 14px 22px; min-width: 170px;
+      text-align: left;
+    }
+    .fiebre-chip .chip-title {
+      font-family: var(--font-fiebre); font-size: 15px; color: var(--ember);
+      letter-spacing: 0.04em; margin-bottom: 3px;
+    }
+    .fiebre-chip .chip-desc { font-size: 10.5px; color: var(--gray-400); font-weight: 300; }
+
+    @media (max-width: 768px) {
+      .fiebre-hero h1 { font-size: 38px; }
+      .fiebre-ribbon .rb-label { font-size: 12px; }
+    }
+
+    /* KICKER / EYEBROW REUTILIZABLE */
+    .section-eyebrow {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      margin-bottom: 0.6rem;
+    }
+    .section-eyebrow::before, .section-eyebrow::after {
+      content: ""; height: 1px; width: 40px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5));
+    }
+    .section-eyebrow::after { background: linear-gradient(90deg, rgba(212,175,55,0.5), transparent); }
+    .section-eyebrow span {
+      font-family: var(--font-fiebre); font-size: 13px; letter-spacing: 0.35em;
+      color: var(--gold); text-transform: uppercase;
+    }
+    .section-title {
+      text-align: center; font-family: var(--font-display); font-size: 15px;
+      letter-spacing: 0.08em; color: var(--gray-200); font-weight: 400;
+      margin-bottom: 2.5rem;
+    }
+
+    /* MARQUEE / TICKER DE URGENCIA */
+    .fiebre-marquee {
+      background: #050505; border-top: 1px solid rgba(224,32,27,0.35);
+      border-bottom: 1px solid rgba(224,32,27,0.35);
+      overflow: hidden; white-space: nowrap; padding: 10px 0;
+    }
+    .fiebre-marquee-track {
+      display: inline-block; padding-left: 100%;
+      animation: marqueeScroll 22s linear infinite;
+    }
+    .fiebre-marquee-track span {
+      font-family: var(--font-fiebre); font-size: 14px; letter-spacing: 0.12em;
+      color: var(--ember); margin-right: 3rem; text-transform: uppercase;
+    }
+    .fiebre-marquee-track span i { color: var(--gray-400); font-style: normal; margin: 0 0.6em; }
+    @keyframes marqueeScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
     /* PROMOCIONES DESTACADAS */
     .promo-banner-section {
       padding: 4rem 2rem 1rem;
@@ -173,19 +345,29 @@
       gap: 2rem;
     }
     .promo-card {
-      background: linear-gradient(135deg, #141310 0%, #0d0d0d 100%);
-      border: 1px dashed rgba(212, 175, 55, 0.4);
-      padding: 2.5rem 2rem;
+      background: linear-gradient(135deg, #171310 0%, #0d0d0d 100%);
+      border: 1px solid rgba(224,32,27,0.25);
+      padding: 2.6rem 2rem;
       text-align: center;
       position: relative;
       overflow: hidden;
+      transition: all var(--transition);
     }
+    .promo-card::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% -10%, rgba(224,32,27,0.18), transparent 60%);
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .promo-card:hover { border-color: var(--fire-red); transform: translateY(-4px); box-shadow: 0 15px 35px rgba(224,32,27,0.15); }
+    .promo-card:hover::before { opacity: 1; }
+    .promo-card .promo-icon { font-size: 22px; margin-bottom: 10px; }
     .promo-card h3 {
       font-family: var(--font-display);
       font-size: 20px;
-      color: var(--gold);
+      color: var(--bg-light);
       letter-spacing: 0.1em;
       margin-bottom: 10px;
+      position: relative;
     }
     .promo-card p {
       font-size: 12px;
@@ -193,12 +375,14 @@
       font-weight: 300;
       max-width: 400px;
       margin: 0 auto;
+      position: relative;
     }
     .promo-tag {
       position: absolute; top: 12px; right: 12px;
-      font-size: 9px; text-transform: uppercase;
-      letter-spacing: 0.1em; background: rgba(212,175,55,0.15);
-      color: var(--gold); padding: 2px 8px; border: 1px solid var(--gold);
+      font-family: var(--font-fiebre);
+      font-size: 11px; text-transform: uppercase;
+      letter-spacing: 0.1em; background: var(--fire-red);
+      color: #fff; padding: 3px 10px;
     }
 
     /* FILTROS */
@@ -255,6 +439,24 @@
       letter-spacing: 0.1em; padding: 4px 10px; z-index: 10;
     }
 
+    .badge-offer {
+      position: absolute; top: 15px; right: 15px;
+      background: var(--fire-red); color: #fff;
+      font-family: var(--font-fiebre);
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 10px; z-index: 10;
+      box-shadow: 0 0 14px rgba(224,32,27,0.55);
+    }
+
+    .product-card.on-sale {
+      border-color: rgba(224,32,27,0.35);
+      animation: cardGlow 3.2s ease-in-out infinite;
+    }
+    @keyframes cardGlow {
+      0%, 100% { box-shadow: 0 0 0 rgba(224,32,27,0); }
+      50% { box-shadow: 0 0 22px rgba(224,32,27,0.18); }
+    }
+
     .product-thumb {
       aspect-ratio: 1/1;
       overflow: hidden;
@@ -281,6 +483,20 @@
     .variant-opt.selected { border-color: var(--gold); color: var(--gold); background: rgba(214,175,55,0.06); }
 
     .product-price { font-family: var(--font-display); font-size: 19px; color: var(--gold); margin: auto 0 16px; font-weight: 500; }
+
+    .price-wrap {
+      display: flex; align-items: baseline; justify-content: center;
+      gap: 10px; margin: auto 0 16px; flex-wrap: wrap;
+    }
+    .price-old {
+      font-family: var(--font-body); font-size: 13px;
+      color: var(--gray-400); text-decoration: line-through;
+      font-weight: 300;
+    }
+    .price-offer {
+      font-family: var(--font-display); font-size: 20px;
+      color: var(--fire-red); font-weight: 600;
+    }
 
     .btn-action {
       width: 100%; padding: 13px;
@@ -369,6 +585,14 @@
 </head>
 <body>
 
+  <!-- RIBBON DE CUENTA REGRESIVA — FIEBRE ABSOLUT -->
+  <div class="fiebre-ribbon" id="fiebre-ribbon">
+    <span class="rb-label" id="fiebre-ribbon-label">🔥 LA FIEBRE ABSOLUT</span>
+    <div class="rb-timer" id="fiebre-ribbon-timer">
+      <span id="rb-d">00d</span><span id="rb-h">00h</span><span id="rb-m">00m</span><span id="rb-s">00s</span>
+    </div>
+  </div>
+
   <!-- CONTENEDOR DE NOTIFICACIONES TOAST -->
   <div class="toast-container" id="toast-container"></div>
 
@@ -393,6 +617,45 @@
     </nav>
   </header>
 
+  <!-- HERO CAMPAÑA — FIEBRE ABSOLUT -->
+  <section class="fiebre-hero">
+    <span class="ember"></span><span class="ember"></span><span class="ember"></span>
+    <span class="ember"></span><span class="ember"></span><span class="ember"></span>
+    <div class="fiebre-stamp">72<b>HORAS</b>DE FIEBRE</div>
+    <div class="fiebre-tag" id="fiebre-tag">72 HORAS · UNIDADES LIMITADAS</div>
+    <h1>ALGO ESTÁ <span>SUBIENDO</span> DE TEMPERATURA</h1>
+    <p class="subtitle" id="fiebre-subtitle">No es una promoción cualquiera, es la Fiebre Absolut: precios de diseñador y árabes que difícilmente volverán a repetirse, por tiempo limitado en toda la tienda.</p>
+
+    <div class="thermo-wrap">
+      <span class="thermo-icon">🌡️</span>
+      <div class="thermo-track"><div class="thermo-fill" id="thermo-fill"></div></div>
+      <span class="thermo-label" id="thermo-label">0%</span>
+    </div>
+
+    <div class="fiebre-chips">
+      <div class="fiebre-chip">
+        <div class="chip-title">⏱ 72 Horas</div>
+        <div class="chip-desc">de fiebre, mientras dure el reloj</div>
+      </div>
+      <div class="fiebre-chip">
+        <div class="chip-title">🎒 Stock Limitado</div>
+        <div class="chip-desc">hasta agotar existencias</div>
+      </div>
+      <div class="fiebre-chip">
+        <div class="chip-title">🏷️ Precios de Fiebre</div>
+        <div class="chip-desc">busca el sello rojo "Oferta" en el catálogo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE DE URGENCIA -->
+  <div class="fiebre-marquee">
+    <div class="fiebre-marquee-track">
+      <span>🔥 SOLO 72 HORAS <i>•</i> PRECIOS DE FIEBRE <i>•</i> UNIDADES LIMITADAS <i>•</i> HASTA AGOTAR STOCK <i>•</i> NO HABRÁ MARCHA ATRÁS</span>
+      <span>🔥 SOLO 72 HORAS <i>•</i> PRECIOS DE FIEBRE <i>•</i> UNIDADES LIMITADAS <i>•</i> HASTA AGOTAR STOCK <i>•</i> NO HABRÁ MARCHA ATRÁS</span>
+    </div>
+  </div>
+
   <!-- HERO PORTADA -->
   <section class="hero">
     <h1>Descubre tu esencia</h1>
@@ -402,14 +665,18 @@
 
   <!-- PROMOCIONES VIGENTES -->
   <section class="promo-banner-section">
+    <div class="section-eyebrow"><span>Promociones activas</span></div>
+    <p class="section-title">Combínalas con la Fiebre Absolut y arma tu set ideal</p>
     <div class="promo-grid">
       <div class="promo-card">
         <div class="promo-tag">Vigente</div>
+        <div class="promo-icon">🔓</div>
         <h3>Unlock Your Scent</h3>
         <p>Completa tu cuponera digital (Solo en formato de 5ml). Al acumular 3 decants individuales de 5ml en tu bolsa, ¡el 4to decant de 5ml va completamente GRATIS!</p>
       </div>
       <div class="promo-card">
         <div class="promo-tag">Imperdible</div>
+        <div class="promo-icon">🧪</div>
         <h3>Set Especial: 3 Decants x $399</h3>
         <p>Elige 3 fragancias en decant de 5ml por solo $399. Diseña tu set personalizado y descubre nuevos aromas sin gastar de más.</p>
       </div>
@@ -425,6 +692,8 @@
 
   <!-- GRILLA PRINCIPAL DE FRAGANCIAS -->
   <main class="products-section">
+    <div class="section-eyebrow"><span>Colección completa</span></div>
+    <p class="section-title">Busca el resplandor rojo: son los precios de la Fiebre</p>
     <div class="products-grid" id="products-grid"></div>
   </main>
 
@@ -482,18 +751,18 @@
 
     const PRODUCTOS = [
       // PERFUMES COMPLETOS
-     { id: 1, marca: "Dolce & Gabbana", nombre: "Dolce & Gabbana King EDP Caballero", desc: "Fragancia majestuosa, fresca y picante, que celebra una nueva era de masculinidad.", notas: ["Cítricas", "Amaderadas", "Especiadas"], imagen: "imagenes/dolceedp200ml.jpg", cat: "completos", precios: { "200ml": 1990 } },
-     { id: 2, marca: "Versace", nombre: "Versace Eros Najim Parfum Caballero", desc: "Edición mística y sumamente rica inspirada en los encantos tradicionales de oriente.", notas: ["Orientales", "Amaderadas"], imagen: "imagenes/versacenajim.jpg", cat: "completos", precios: { "100ml": 2099 } },
-     { id: 3, marca: "Versace", nombre: "Versace Eros EDP Caballero", desc: "El gran estandarte de la seducción masculina, vibrante, fresco y oriental.", notas: ["Cítricas", "Orientales"], imagen: "imagenes/versaceedp200ml.jpg", cat: "completos", precios: { "200ml": 2189 } },
-     { id: 4, marca: "Jean Paul Gaultier", nombre: "Jean Paul Gaultier Le Beau Le Parfum EDP Caballero", desc: "Una tentación ultra sensual amaderada y dulce con acordes tropicales súper adictivos.", notas: ["Amaderadas", "Dulces"], imagen: "imagenes/jpglebeauleparfum.jpg", cat: "completos", precios: { "125ml": 2700 } },
+     { id: 1, marca: "Dolce & Gabbana", nombre: "Dolce & Gabbana King EDP Caballero", desc: "Fragancia majestuosa, fresca y picante, que celebra una nueva era de masculinidad.", notas: ["Cítricas", "Amaderadas", "Especiadas"], imagen: "imagenes/dolceedp200ml.jpg", cat: "completos", precios: { "200ml": 1990 },  ofertas: { "200ml": 1645 }},
+     { id: 2, marca: "Versace", nombre: "Versace Eros Najim Parfum Caballero", desc: "Edición mística y sumamente rica inspirada en los encantos tradicionales de oriente.", notas: ["Orientales", "Amaderadas"], imagen: "imagenes/versacenajim.jpg", cat: "completos", precios: { "100ml": 2099 }, ofertas: { "100ml": 1745 } },
+     { id: 3, marca: "Versace", nombre: "Versace Eros EDP Caballero", desc: "El gran estandarte de la seducción masculina, vibrante, fresco y oriental.", notas: ["Cítricas", "Orientales"], imagen: "imagenes/versaceedp200ml.jpg", cat: "completos", precios: { "200ml": 2189 }, ofertas: { "100ml": 1312 } },
+     { id: 4, marca: "Jean Paul Gaultier", nombre: "Jean Paul Gaultier Le Beau Le Parfum EDP Caballero", desc: "Una tentación ultra sensual amaderada y dulce con acordes tropicales súper adictivos.", notas: ["Amaderadas", "Dulces"], imagen: "imagenes/jpglebeauleparfum.jpg", cat: "completos", precios: { "125ml": 2700 } ,  ofertas: { "125ml": 2199 } },
      { id: 5, marca: "Jean Paul Gaultier", nombre: "Jean Paul Gaultier Le Beau EDT Caballero", desc: "Un golpe de aire fresco y adictivo impulsado por coco, bergamota y haba tonka.", notas: ["Frescas", "Dulces"], imagen: "imagenes/jpglebeauedt.jpg", cat: "completos", precios: { "125ml": 1999 } },
-     { id: 6, marca: "Jean Paul Gaultier", nombre: "Jean Paul Gaultier Le Male Elixir EDP Caballero", desc: "Un elixir ardiente que envuelve tu piel con una estela dulce de oro y ám.", notas: ["Orientales", "Dulces"], imagen: "imagenes/jpglemalelixir200ml.jpg", cat: "completos", precios: { "125ml": 2550, "200ml": 2989 } },
+     { id: 6, marca: "Jean Paul Gaultier", nombre: "Jean Paul Gaultier Le Male Elixir EDP Caballero", desc: "Un elixir ardiente que envuelve tu piel con una estela dulce de oro y ám.", notas: ["Orientales", "Dulces"], imagen: "imagenes/jpglemalelixir200ml.jpg", cat: "completos", precios: { "125ml": 2550, "200ml": 2989 },  ofertas: { "200ml": 2450 }},
      { id: 7, marca: "Paco Rabanne", nombre: "One Million EDT Caballero", desc: "El aroma icónico del éxito. Opulento, audaz, especiado y eternamente magnético.", notas: ["Especiadas", "Dulces"], imagen: "imagenes/onemillionedp.jpg", cat: "completos", precios: { "100ml": 1955 } },
-     { id: 8, marca: "Armaf", nombre: "Armaf Club de Nuit Urban Man Elixir Caballero", desc: "Elegancia sofisticada y limpia con una estela de proyección verdaderamente colosal.", notas: ["Cítricas", "Amaderadas"], imagen: "imagenes/clubdenuiturbanmanelixir.jpg", cat: "completos", precios: { "105ml": 1299 } },
-     { id: 9, marca: "Armaf", nombre: "Odyssey Mandarin Sky EDP Caballero", desc: "Un despliegue de mandarina dulce y acordes frutales radiantes.", notas: ["Cítricas", "Dulces"], imagen: "imagenes/mandarinsky.jpg", cat: "completos", precios: { "100ml": 1050 } },
+     { id: 8, marca: "Armaf", nombre: "Armaf Club de Nuit Urban Man Elixir Caballero", desc: "Elegancia sofisticada y limpia con una estela de proyección verdaderamente colosal.", notas: ["Cítricas", "Amaderadas"], imagen: "imagenes/clubdenuiturbanmanelixir.jpg", cat: "completos", precios: { "105ml": 1299 }, ofertas: { "105ml": 999 } /* EJEMPLO: pon aquí tu precio de oferta real */ },
+     { id: 9, marca: "Armaf", nombre: "Odyssey Mandarin Sky EDP Caballero", desc: "Un despliegue de mandarina dulce y acordes frutales radiantes.", notas: ["Cítricas", "Dulces"], imagen: "imagenes/mandarinsky.jpg", cat: "completos", precios: { "100ml": 1050 }, ofertas: { "100ml": 800 } },
      { id: 10, marca: "Al Haramain", nombre: "Amber Oud Aqua Dubai Extrait Unisex", desc: "Acuático y lujoso. Un extracto que balancea frescura marina pura y la riqueza del oud.", notas: ["Frescas", "Orientales"], imagen: "imagenes/aquadubai.jpg", cat: "completos", precios: { "100ml": 1569 } },
-     { id: 11, marca: "Bharara", nombre: "Bharara King Rellenable EDP Caballero", desc: "La bestia de las fragancias frutales. Proyección dulce inigualable para destacar.", notas: ["Dulces", "Cítricas"], imagen: "imagenes/bhararaking.jpg", cat: "completos", precios: { "100ml": 1495 } },
-     { id: 12, marca: "Rasasi", nombre: "Hawas Ice EDP Caballero", desc: "Una ola helada de frescura cítrica intensa y aromática de altísima duración.", notas: ["Cítricas", "Frescas"], imagen: "imagenes/hawasice.jpg", cat: "completos", precios: { "100ml": 1400 } },
+     { id: 11, marca: "Bharara", nombre: "Bharara King Rellenable EDP Caballero", desc: "La bestia de las fragancias frutales. Proyección dulce inigualable para destacar.", notas: ["Dulces", "Cítricas"], imagen: "imagenes/bhararaking.jpg", cat: "completos", precios: { "100ml": 1495 }, ofertas: { "100ml": 1239 } },
+     { id: 12, marca: "Rasasi", nombre: "Hawas Ice EDP Caballero", desc: "Una ola helada de frescura cítrica intensa y aromática de altísima duración.", notas: ["Cítricas", "Frescas"], imagen: "imagenes/hawasice.jpg", cat: "completos", precios: { "100ml": 1400 } ,  ofertas: { "100ml": 1098 } },
      { id: 13, marca: "Rasasi", nombre: "Hawas Tropical EDP Caballero", desc: "Un cocktail energético de frutas exóticas sobre maderas finas y suaves.", notas: ["Dulces", "Frescas"], imagen: "imagenes/hawastropical.jpg", cat: "completos", precios: { "100ml": 1500 } },
      { id: 14, marca: "Rasasi", nombre: "Hawas Malibu EDP Unisex", desc: "Excelente balance marino-especiado ideal para cualquier hora del día.", notas: ["Frescas", "Cítricas"], imagen: "imagenes/hawasmalibu.jpg", cat: "completos", precios: { "100ml": 1500 } },
      { id: 15, marca: "Rasasi", nombre: "Hawas London EDP Unisex", desc: "Sofisticación urbana con acordes pulcros y destellos contemporáneos muy limpios.", notas: ["Amaderadas", "Frescas"], imagen: "imagenes/hawaslondon.jpg", cat: "completos", precios: { "100ml": 1600 } },
@@ -501,16 +770,23 @@
      { id: 17, marca: "Lattafa", nombre: "Lattafa Asad Zanzibar EDP Caballero", desc: "Una propuesta exótica que une acordes salados de coco y maderas finas.", notas: ["Frescas", "Amaderadas"], imagen: "imagenes/asadzanzibar.jpg", cat: "completos", precios: { "100ml": 949 } },
      { id: 18, marca: "Lattafa", nombre: "Lattafa Khamrah Qahwa EDP Unisex", desc: "Una obra de arte gourmand, cargada de café cálido, dátiles y canela dulce.", notas: ["Dulces", "Orientales"], imagen: "imagenes/QahwaEDP.jpg", cat: "completos", precios: { "100ml": 1100 } },
      { id: 19, marca: "Lattafa", nombre: "Lattafa Khamrah Dukhan EDP Dama", desc: "Elegancia misteriosa y ahumada concebida en exclusiva para la mujer sofisticada.", notas: ["Orientales", "Dulces"], imagen: "imagenes/DukhanEDP.jpg", cat: "completos", precios: { "100ml": 1090 } },
-     { id: 20, marca: "Carolina Herrera", nombre: "212 Vip Black Elixir EDP Caballero", desc: "La versión más intensa, oscura y nocturna de la aclamada línea VIP Black.", notas: ["Orientales", "Especiadas"], imagen: "imagenes/212black.jpg", cat: "completos", precios: { "100ml": 2210 } },
+     { id: 20, marca: "Carolina Herrera", nombre: "212 Vip Black Elixir EDP Caballero", desc: "La versión más intensa, oscura y nocturna de la aclamada línea VIP Black.", notas: ["Orientales", "Especiadas"], imagen: "imagenes/212black.jpg", cat: "completos", precios: { "100ml": 2210 }, ofertas: { "100ml": 1809 } },
      { id: 21, marca: "Carolina Herrera", nombre: "Bad Boy Cobalt Elixir EDP Caballero", desc: "Elixir audaz e imponente cargado de frescura mineral y maderas rústicas.", notas: ["Frescas", "Amaderadas"], imagen: "imagenes/cobalt.jpg", cat: "completos", precios: { "100ml": 2450 } },
      { id: 22, marca: "Carolina Herrera", nombre: "212 Vip Black EDP Caballero", desc: "Fragancia fiestera, enérgica y especiada nacida para adueñarse de la noche.", notas: ["Dulces", "Orientales"], imagen: "imagenes/212vip.jpg", cat: "completos", precios: { "100ml": 1950 } },
      { id: 23, marca: "Carolina Herrera", nombre: "212 Men EDT Caballero", desc: "La esencia cosmopolita de Manhattan: toques verdes, frescos y metálicos impecables.", notas: ["Frescas", "Cítricas"], imagen: "imagenes/212men.jpg", cat: "completos", precios: { "100ml": 1890 } },
      { id: 24, marca: "Carolina Herrera", nombre: "CH Men EDT Caballero", desc: "Elegancia clásica redefinida con acordes de cuero premium y maderas.", notas: ["Amaderadas", "Especiadas"], imagen: "imagenes/chhc.jpg", cat: "completos", precios: { "200ml": 2559 } },
      { id: 25, marca: "Givenchy", nombre: "Givenchy Gentleman Society EDP Caballero", desc: "Únete a la alta sociedad a través de este refinado elixir de iris y maderas.", notas: ["Amaderadas", "Orientales"], imagen: "imagenes/gentlemlan.jpg", cat: "completos", precios: { "100ml": 2370 } },
      { id: 26, marca: "Giorgio Armani", nombre: "Armani Code Parfum EDP Caballero", desc: "Reescribe los códigos modernos del hombre elegante con notas de iris refinado y cedro.", notas: ["Amaderadas", "Orientales"], imagen: "imagenes/armanicode.jpg", cat: "completos", precios: { "125ml": 2599 } },
-     { id: 27, marca: "Giorgio Armani", nombre: "Acqua di Gio Profondo Parfum Caballero", desc: "Inmersión absoluta en un océano de frescura cítrica y maderas marinas elegantes.", notas: ["Frescas", "Cítricas"], imagen: "imagenes/profondo.jpg", cat: "completos", precios: { "100ml": 2700 } },
-     { id: 28, marca: "Christian Dior", nombre: "Sauvage EDT Caballero", desc: "Un acto salvaje de creación. Fresco, crudo, amaderado y sumamente imponente.", notas: ["Frescas", "Amaderadas"], imagen: "imagenes/sauvageedt.jpg", cat: "completos", precios: { "100ml": 2800 } },
-     { id: 29, marca: "Christian Dior", nombre: "Sauvage EDP Caballero", desc: "La frescura jugosa de la bergamota entrelazada con la sensualidad de la vainilla.", notas: ["Frescas", "Orientales"], imagen: "imagenes/sauvageedp.jpg", cat: "completos", precios: { "100ml": 3400 } },
+     { id: 27, marca: "Giorgio Armani", nombre: "Acqua di Gio Profondo Parfum Caballero", desc: "Inmersión absoluta en un océano de frescura cítrica y maderas marinas elegantes.", notas: ["Frescas", "Cítricas"], imagen: "imagenes/profondo.jpg", cat: "completos", precios: { "100ml": 2700 },  ofertas: { "100ml": 2350 }},
+     { id: 28, marca: "Christian Dior", nombre: "Sauvage EDT Caballero", desc: "Un acto salvaje de creación. Fresco, crudo, amaderado y sumamente imponente.", notas: ["Frescas", "Amaderadas"], imagen: "imagenes/sauvageedt.jpg", cat: "completos", precios: { "100ml": 2800 }, ofertas: { "100ml": 2390 } /* EJEMPLO: pon aquí tu precio de oferta real */ },
+     { id: 29, marca: "Christian Dior", nombre: "Sauvage EDP Caballero", desc: "La frescura jugosa de la bergamota entrelazada con la sensualidad de la vainilla.", notas: ["Frescas", "Orientales"], imagen: "imagenes/sauvageedp.jpg", cat: "completos", precios: { "100ml": 3400 }, ofertas: { "100ml": 3044 } },
+   
+   
+   
+   
+   
+     // { id: 29, marca: "Dior", nombre: "Miss Dior", desc: "La frescura jugosa de la bergamota entrelazada con la sensualidad de la vainilla.", notas: ["Frescas", "Orientales"], imagen: "imagenes/sauvageedp.jpg", cat: "completos", precios: { "100ml": 3400 }, ofertas: { "100ml": 3044 } },
+
 
       // DECANTS DISPONIBLES
       { id: 101, marca: "Azzaro", nombre: "Azzaro The Most Wanted intense", desc: "Muestra seleccionada. Una fragancia magnética y sumamente atrevida.", notas: ["Dulces", "Orientales"], imagen: "imagenes/azzarointense.jpg", cat: "decants", precios: { "5ml": 165, "10ml": 285 } },
@@ -538,7 +814,9 @@
 
       lista.forEach(p => {
         const card = document.createElement("div");
-        card.className = "product-card";
+        const varianteActual = seleccionados[p.id];
+        const tieneOferta = !!(p.ofertas && p.ofertas[varianteActual]);
+        card.className = "product-card" + (tieneOferta ? " on-sale" : "");
         
         const badgeHTML = p.cat === "decants" ? `<div class="badge" style="background:#222; color:var(--gold); border:1px solid var(--gold);">Decant</div>` : '';
         const notesHTML = p.notas.map(n => `<span class="note-tag">${n}</span>`).join('');
@@ -556,11 +834,18 @@
           selectorHTML = `<div style="font-size:11px; color:var(--gray-400); margin-bottom:16px; text-transform:uppercase; letter-spacing:0.05em;">Contenido: ${tamanos[0]}</div>`;
         }
 
-        const varianteActual = seleccionados[p.id];
         const precioActual = p.precios[varianteActual];
+        const ofertaActual = (p.ofertas && p.ofertas[varianteActual]) ? p.ofertas[varianteActual] : null;
+
+        const offerBadgeHTML = ofertaActual ? `<div class="badge-offer">Oferta</div>` : '';
+
+        const priceHTML = ofertaActual
+          ? `<div class="price-wrap"><span class="price-old">$${precioActual}</span><span class="price-offer">$${ofertaActual}</span></div>`
+          : `<div class="product-price">$${precioActual}</div>`;
 
         card.innerHTML = `
           ${badgeHTML}
+          ${offerBadgeHTML}
           <div class="product-thumb"><img src="${p.imagen}" alt="${p.nombre}"></div>
           <div class="product-info">
             <span class="product-brand">${p.marca}</span>
@@ -568,7 +853,7 @@
             <p class="product-desc">${p.desc}</p>
             <div class="olfative-notes">${notesHTML}</div>
             ${selectorHTML}
-            <div class="product-price">$${precioActual}</div>
+            ${priceHTML}
             <button class="btn-action btn-primary" onclick="manejarBotonAgregar(${p.id})">Añadir a la Bolsa</button>
           </div>
         `;
@@ -655,7 +940,8 @@
     }
 
     function ejecutarAgregar(p, tamano, promo) {
-      const precio = p.precios[tamano];
+      const tieneOferta = p.ofertas && p.ofertas[tamano];
+      const precio = tieneOferta ? p.ofertas[tamano] : p.precios[tamano];
       const itemExistente = carrito.find(x => x.id === p.id && x.tamano === tamano && x.promo === promo);
       
       if (itemExistente) {
@@ -867,6 +1153,74 @@
       
       window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(mensajeTexto)}`, "_blank");
     }
+
+    // ===== FIEBRE ABSOLUT: CUENTA REGRESIVA Y TERMÓMETRO =====
+    // Ajusta estas dos fechas a la hora real de inicio/fin de tu promoción.
+    const FIEBRE_INICIO = new Date(2026, 6, 24, 0, 0, 0);   // 24 de julio 2026, 00:00
+    const FIEBRE_FIN    = new Date(2026, 6, 27, 0, 0, 0);   // 72 horas después
+
+    function actualizarFiebre() {
+      const ahora = new Date();
+      const label = document.getElementById("fiebre-ribbon-label");
+      const tag = document.getElementById("fiebre-tag");
+      const subtitle = document.getElementById("fiebre-subtitle");
+      const fill = document.getElementById("thermo-fill");
+      const thermoLabel = document.getElementById("thermo-label");
+
+      let diff, totalMs;
+
+      if (ahora < FIEBRE_INICIO) {
+        label.textContent = "🔥 LA FIEBRE ABSOLUT INICIA EN";
+        tag.textContent = "SE VIENE · 24 DE JULIO";
+        diff = FIEBRE_INICIO - ahora;
+        fill.style.width = "0%";
+        thermoLabel.textContent = "Aún no inicia";
+      } else if (ahora >= FIEBRE_INICIO && ahora < FIEBRE_FIN) {
+        label.textContent = "🔥 LA FIEBRE ABSOLUT ESTÁ EN PROGRESO";
+        tag.textContent = "EN VIVO · UNIDADES LIMITADAS";
+        subtitle.textContent = "La Fiebre Absolut está en progreso: precios de diseñador y árabes que difícilmente volverán a repetirse, por tiempo limitado en toda la tienda.";
+        diff = FIEBRE_FIN - ahora;
+        totalMs = FIEBRE_FIN - FIEBRE_INICIO;
+        const pct = Math.min(100, Math.max(0, 100 - (diff / totalMs) * 100));
+        fill.style.width = pct.toFixed(1) + "%";
+        thermoLabel.textContent = Math.round(pct) + "% consumido";
+      } else {
+        label.textContent = "🔥 LA FIEBRE ABSOLUT HA TERMINADO";
+        tag.textContent = "PROMOCIÓN FINALIZADA";
+        subtitle.textContent = "La Fiebre Absolut concluyó. Sigue nuestras redes para enterarte de la próxima.";
+        document.getElementById("fiebre-ribbon-timer").innerHTML = "";
+        fill.style.width = "100%";
+        thermoLabel.textContent = "Finalizada";
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("rb-d").textContent = String(d).padStart(2, "0") + "d";
+      document.getElementById("rb-h").textContent = String(h).padStart(2, "0") + "h";
+      document.getElementById("rb-m").textContent = String(m).padStart(2, "0") + "m";
+      document.getElementById("rb-s").textContent = String(s).padStart(2, "0") + "s";
+    }
+
+    actualizarFiebre();
+    setInterval(actualizarFiebre, 1000);
+
+    // Ajusta la posición "sticky" del header y los filtros según la altura real del ribbon
+    function ajustarStickyOffsets() {
+      const ribbon = document.getElementById("fiebre-ribbon");
+      const header = document.querySelector("header");
+      const filtros = document.querySelector(".filters");
+      if (!ribbon || !header || !filtros) return;
+      const ribbonH = ribbon.offsetHeight;
+      header.style.top = ribbonH + "px";
+      filtros.style.top = (ribbonH + header.offsetHeight) + "px";
+    }
+    window.addEventListener("resize", ajustarStickyOffsets);
+    window.addEventListener("load", ajustarStickyOffsets);
+    ajustarStickyOffsets();
 
     renderProducts(PRODUCTOS);
   </script>
