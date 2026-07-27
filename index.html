@@ -604,16 +604,12 @@
 
       .promo-banner-section, .products-section { padding-left: 1.2rem; padding-right: 1.2rem; }
       .promo-grid { grid-template-columns: 1fr; gap: 1.2rem; }
-      .products-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 1.2rem; }
-      .product-info { padding: 1.2rem 1rem; }
-      .badge, .badge-offer { top: 8px; font-size: 8px; padding: 3px 7px; }
-      .badge { left: 8px; }
-      .badge-offer { right: 8px; }
-      .product-name { font-size: 13px; min-height: 34px; }
-      .product-desc { display: none; }
-      .price-old { font-size: 11px; }
-      .price-offer { font-size: 16px; }
-      .btn-action { padding: 10px; font-size: 10px; }
+      .products-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .product-info { padding: 1.5rem 1.2rem; }
+      .badge, .badge-offer { top: 12px; font-size: 9px; padding: 4px 9px; }
+      .badge { left: 12px; }
+      .badge-offer { right: 12px; }
+      .btn-action { padding: 12px; font-size: 10.5px; }
 
       .wa-float { width: 48px; height: 48px; bottom: 18px; right: 18px; }
     }
@@ -622,7 +618,6 @@
       .fiebre-hero h1 { font-size: 30px; }
       .thermo-wrap { gap: 8px; }
       .thermo-label { display: none; }
-      .products-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.9rem; }
     }
   </style>
 </head>
@@ -664,8 +659,8 @@
   <section class="fiebre-hero">
     <span class="ember"></span><span class="ember"></span><span class="ember"></span>
     <span class="ember"></span><span class="ember"></span><span class="ember"></span>
-    <div class="fiebre-stamp">72<b>HORAS</b>DE FIEBRE</div>
-    <div class="fiebre-tag" id="fiebre-tag">72 HORAS · UNIDADES LIMITADAS</div>
+    <div class="fiebre-stamp">HASTA<b>EL 31</b>DE JULIO</div>
+    <div class="fiebre-tag" id="fiebre-tag">EXTENDIDA · UNIDADES LIMITADAS</div>
     <h1>ALGO ESTÁ <span>SUBIENDO</span> DE TEMPERATURA</h1>
     <p class="subtitle" id="fiebre-subtitle">No es una promoción cualquiera, es la Fiebre Absolut: precios de diseñador y árabes que difícilmente volverán a repetirse, por tiempo limitado en toda la tienda.</p>
 
@@ -677,8 +672,8 @@
 
     <div class="fiebre-chips">
       <div class="fiebre-chip">
-        <div class="chip-title">⏱ 72 Horas</div>
-        <div class="chip-desc">de fiebre, mientras dure el reloj</div>
+        <div class="chip-title">⏱ Hasta el 31</div>
+        <div class="chip-desc">de julio, mientras dure el reloj</div>
       </div>
       <div class="fiebre-chip">
         <div class="chip-title">🎒 Stock Limitado</div>
@@ -694,8 +689,8 @@
   <!-- MARQUEE DE URGENCIA -->
   <div class="fiebre-marquee">
     <div class="fiebre-marquee-track">
-      <span>🔥 SOLO 72 HORAS <i>•</i> PRECIOS DE FIEBRE <i>•</i> UNIDADES LIMITADAS <i>•</i> HASTA AGOTAR STOCK <i>•</i> NO HABRÁ MARCHA ATRÁS</span>
-      <span>🔥 SOLO 72 HORAS <i>•</i> PRECIOS DE FIEBRE <i>•</i> UNIDADES LIMITADAS <i>•</i> HASTA AGOTAR STOCK <i>•</i> NO HABRÁ MARCHA ATRÁS</span>
+      <span>🔥 FIEBRE EXTENDIDA HASTA EL 31 DE JULIO <i>•</i> PRECIOS DE FIEBRE <i>•</i> UNIDADES LIMITADAS <i>•</i> HASTA AGOTAR STOCK <i>•</i> NO HABRÁ MARCHA ATRÁS</span>
+      <span>🔥 FIEBRE EXTENDIDA HASTA EL 31 DE JULIO <i>•</i> PRECIOS DE FIEBRE <i>•</i> UNIDADES LIMITADAS <i>•</i> HASTA AGOTAR STOCK <i>•</i> NO HABRÁ MARCHA ATRÁS</span>
     </div>
   </div>
 
@@ -1237,7 +1232,7 @@
     // ===== FIEBRE ABSOLUT: CUENTA REGRESIVA Y TERMÓMETRO =====
     // Ajusta estas dos fechas a la hora real de inicio/fin de tu promoción.
     const FIEBRE_INICIO = new Date(2026, 6, 24, 0, 0, 0);   // 24 de julio 2026, 00:00
-    const FIEBRE_FIN    = new Date(2026, 6, 27, 0, 0, 0);   // 72 horas después
+    const FIEBRE_FIN    = new Date(2026, 6, 31, 23, 59, 59); // Extendida hasta el 31 de julio 2026, 23:59
 
     function actualizarFiebre() {
       const ahora = new Date();
